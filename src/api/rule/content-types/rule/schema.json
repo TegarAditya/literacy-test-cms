@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "rules",
+  "info": {
+    "singularName": "rule",
+    "pluralName": "rules",
+    "displayName": "Rule"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "rule_field": {
+      "type": "richtext"
+    }
+  }
+}

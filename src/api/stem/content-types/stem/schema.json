@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stems",
+  "info": {
+    "singularName": "stem",
+    "pluralName": "stems",
+    "displayName": "Stem"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "stem_field": {
+      "type": "richtext"
+    },
+    "questions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::question.question",
+      "mappedBy": "stem"
+    }
+  }
+}
