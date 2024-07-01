@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "responses",
+  "info": {
+    "singularName": "response",
+    "pluralName": "responses",
+    "displayName": "response"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "userData": {
+      "type": "json"
+    },
+    "userAnswer": {
+      "type": "json"
+    }
+  }
+}

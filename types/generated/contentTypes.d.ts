@@ -947,6 +947,37 @@ export interface ApiQuestionQuestion extends Schema.CollectionType {
   };
 }
 
+export interface ApiResponseResponse extends Schema.CollectionType {
+  collectionName: 'responses';
+  info: {
+    singularName: 'response';
+    pluralName: 'responses';
+    displayName: 'response';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    userData: Attribute.JSON;
+    userAnswer: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::response.response',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::response.response',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRuleRule extends Schema.SingleType {
   collectionName: 'rules';
   info: {
@@ -1051,6 +1082,7 @@ declare module '@strapi/types' {
       'api::option.option': ApiOptionOption;
       'api::participant.participant': ApiParticipantParticipant;
       'api::question.question': ApiQuestionQuestion;
+      'api::response.response': ApiResponseResponse;
       'api::rule.rule': ApiRuleRule;
       'api::session.session': ApiSessionSession;
       'api::stem.stem': ApiStemStem;
