@@ -788,41 +788,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiAnswerAnswer extends Schema.CollectionType {
-  collectionName: 'answers';
-  info: {
-    singularName: 'answer';
-    pluralName: 'answers';
-    displayName: 'Answer';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    time: Attribute.DateTime;
-    option: Attribute.Relation<
-      'api::answer.answer',
-      'manyToOne',
-      'api::option.option'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::answer.answer',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::answer.answer',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiOptionOption extends Schema.CollectionType {
   collectionName: 'options';
   info: {
@@ -842,11 +807,6 @@ export interface ApiOptionOption extends Schema.CollectionType {
       'manyToOne',
       'api::question.question'
     >;
-    answers: Attribute.Relation<
-      'api::option.option',
-      'oneToMany',
-      'api::answer.answer'
-    >;
     code: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -859,44 +819,6 @@ export interface ApiOptionOption extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::option.option',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiParticipantParticipant extends Schema.CollectionType {
-  collectionName: 'participants';
-  info: {
-    singularName: 'participant';
-    pluralName: 'participants';
-    displayName: 'Participant';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    name: Attribute.String;
-    school: Attribute.String;
-    age: Attribute.String;
-    gender: Attribute.String;
-    school_type: Attribute.String;
-    start_time: Attribute.DateTime;
-    end_time: Attribute.DateTime;
-    client_fingerprint: Attribute.String;
-    answers: Attribute.JSON;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::participant.participant',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::participant.participant',
       'oneToOne',
       'admin::user'
     > &
@@ -952,7 +874,8 @@ export interface ApiResponseResponse extends Schema.CollectionType {
   info: {
     singularName: 'response';
     pluralName: 'responses';
-    displayName: 'response';
+    displayName: 'Response';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1005,6 +928,7 @@ export interface ApiSessionSession extends Schema.CollectionType {
     singularName: 'session';
     pluralName: 'sessions';
     displayName: 'Session';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1012,8 +936,9 @@ export interface ApiSessionSession extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     token: Attribute.String;
-    start_time: Attribute.DateTime;
+    start: Attribute.DateTime;
     end: Attribute.DateTime;
+    duration: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1078,9 +1003,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::answer.answer': ApiAnswerAnswer;
       'api::option.option': ApiOptionOption;
-      'api::participant.participant': ApiParticipantParticipant;
       'api::question.question': ApiQuestionQuestion;
       'api::response.response': ApiResponseResponse;
       'api::rule.rule': ApiRuleRule;

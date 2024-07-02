@@ -4,7 +4,8 @@
   "info": {
     "singularName": "session",
     "pluralName": "sessions",
-    "displayName": "Session"
+    "displayName": "Session",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,11 +18,14 @@
     "token": {
       "type": "string"
     },
-    "start_time": {
+    "start": {
       "type": "datetime"
     },
     "end": {
       "type": "datetime"
+    },
+    "duration": {
+      "type": "integer"
     }
   }
 }

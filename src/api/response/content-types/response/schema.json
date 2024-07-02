@@ -4,7 +4,8 @@
   "info": {
     "singularName": "response",
     "pluralName": "responses",
-    "displayName": "response"
+    "displayName": "Response",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
