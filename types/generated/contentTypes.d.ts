@@ -939,6 +939,7 @@ export interface ApiSessionSession extends Schema.CollectionType {
     start: Attribute.DateTime;
     end: Attribute.DateTime;
     duration: Attribute.Integer;
+    threshold: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
