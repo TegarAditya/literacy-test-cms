@@ -788,6 +788,36 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiGuideGuide extends Schema.SingleType {
+  collectionName: 'guides';
+  info: {
+    singularName: 'guide';
+    pluralName: 'guides';
+    displayName: 'Guide';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    guide_field: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::guide.guide',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::guide.guide',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOptionOption extends Schema.CollectionType {
   collectionName: 'options';
   info: {
@@ -1004,6 +1034,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::guide.guide': ApiGuideGuide;
       'api::option.option': ApiOptionOption;
       'api::question.question': ApiQuestionQuestion;
       'api::response.response': ApiResponseResponse;
