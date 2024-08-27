@@ -17,6 +17,9 @@
     },
     "userAnswer": {
       "type": "json"
+    },
+    "sessionData": {
+      "type": "json"
     }
   }
 }

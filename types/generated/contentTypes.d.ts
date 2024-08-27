@@ -913,6 +913,7 @@ export interface ApiResponseResponse extends Schema.CollectionType {
   attributes: {
     userData: Attribute.JSON;
     userAnswer: Attribute.JSON;
+    sessionData: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
